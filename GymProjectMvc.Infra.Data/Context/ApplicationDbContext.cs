@@ -1,11 +1,5 @@
-﻿using CleanArchMvc.Domain.Entities;
-using GymProjectMvc.Domain.Entities;
+﻿using GymProjectMvc.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GymProjectMvc.Infra.Data.Context
 {
