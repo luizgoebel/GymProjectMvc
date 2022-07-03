@@ -43,7 +43,8 @@ namespace GymProjectMvc.Domain.Entities
         public string Status { get; private set; }
 
 
-        public ICollection<Matricula> Matriculas { get; set; }
+        public int MatriculaId { get; set; }
+        public Matricula Matricula { get; set; }
 
     }
 }

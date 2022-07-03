@@ -53,6 +53,9 @@ namespace GymProjectMvc.Infra.Data.Migrations
                     b.Property<string>("Logradouro")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("MatriculaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -68,6 +71,9 @@ namespace GymProjectMvc.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Cpf")
+                        .IsUnique();
+
+                    b.HasIndex("MatriculaId")
                         .IsUnique();
 
                     b.ToTable("Alunos");
@@ -107,8 +113,6 @@ namespace GymProjectMvc.Infra.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AlunoId");
 
                     b.HasIndex("Codigo")
                         .IsUnique();
@@ -153,28 +157,31 @@ namespace GymProjectMvc.Infra.Data.Migrations
                     b.ToTable("Planos");
                 });
 
-            modelBuilder.Entity("GymProjectMvc.Domain.Entities.Matricula", b =>
+            modelBuilder.Entity("GymProjectMvc.Domain.Entities.Aluno", b =>
                 {
-                    b.HasOne("GymProjectMvc.Domain.Entities.Aluno", "Aluno")
-                        .WithMany("Matriculas")
-                        .HasForeignKey("AlunoId")
+                    b.HasOne("GymProjectMvc.Domain.Entities.Matricula", "Matricula")
+                        .WithOne("Aluno")
+                        .HasForeignKey("GymProjectMvc.Domain.Entities.Aluno", "MatriculaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Matricula");
+                });
+
+            modelBuilder.Entity("GymProjectMvc.Domain.Entities.Matricula", b =>
+                {
                     b.HasOne("GymProjectMvc.Domain.Entities.Plano", "Plano")
                         .WithMany("Matriculas")
                         .HasForeignKey("PlanoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Aluno");
-
                     b.Navigation("Plano");
                 });
 
-            modelBuilder.Entity("GymProjectMvc.Domain.Entities.Aluno", b =>
+            modelBuilder.Entity("GymProjectMvc.Domain.Entities.Matricula", b =>
                 {
-                    b.Navigation("Matriculas");
+                    b.Navigation("Aluno");
                 });
 
             modelBuilder.Entity("GymProjectMvc.Domain.Entities.Plano", b =>
