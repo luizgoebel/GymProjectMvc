@@ -20,9 +20,9 @@ namespace GymProjectMvc.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.DataVencimento).IsRequired();
             builder.Property(x => x.Status).IsRequired();
 
-
-            builder.HasOne(x => x.Aluno).WithOne(x => x.Matricula);
+            builder.HasOne(x => x.Aluno).WithMany(x => x.Matriculas).HasForeignKey(x => x.AlunoId);
             builder.HasOne(x => x.Plano).WithMany(x => x.Matriculas).HasForeignKey(x => x.PlanoId);
+
         }
     }
 }
