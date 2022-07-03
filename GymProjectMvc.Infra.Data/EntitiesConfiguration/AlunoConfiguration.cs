@@ -20,7 +20,7 @@ namespace GymProjectMvc.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.DataNascimento).IsRequired();
             builder.Property(x => x.Status).IsRequired();
 
-            builder.HasOne(x => x.Matricula).WithOne(x => x.Aluno);
+            //builder.HasOne(x => x.Matricula).WithOne(x => x.Aluno).HasConstraintName("MatriculaId");
         }
     }
 }

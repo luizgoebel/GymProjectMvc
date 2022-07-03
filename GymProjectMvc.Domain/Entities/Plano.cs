@@ -34,5 +34,7 @@ namespace GymProjectMvc.Domain.Entities
         public string Status { get; private set; }
 
         public ICollection<Matricula> Matriculas { get; set; }
+
+        //public ICollection<Aluno> Alunos { get; set; }
     }
 }

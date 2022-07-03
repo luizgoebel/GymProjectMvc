@@ -18,6 +18,7 @@ namespace GymProjectMvc.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.Valor).HasPrecision(12, 2).IsRequired();
             builder.Property(x => x.Status).IsRequired();
 
+            //builder.HasMany(x => x.Matriculas).WithOne(x => x.Plano).HasForeignKey(x => x.PlanoId);
         }
     }
 }
