@@ -1,4 +1,6 @@
-﻿namespace GymProjectMvc.Domain.Entities.Validation
+﻿using System;
+
+namespace GymProjectMvc.Domain.Entities.Validation
 {
     public class DomainExceptionValidation : Exception
     {

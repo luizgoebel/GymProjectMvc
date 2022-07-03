@@ -11,6 +11,7 @@ namespace GymProjectMvc.Infra.Data.Context
 
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Plano> Planos { get; set; }
+        public DbSet<Matricula> Matriculas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
