@@ -24,15 +24,18 @@ namespace GymProjectMvc.Domain.Entities
             PlanoId = planoId;
             DataPagamento = dataPagamento;
             DataVencimento = dataVencimento;
+            Status = status;
         }
 
         public long Codigo { get; private set; }
+        public DateTime DataPagamento { get; private set; }
+        public DateTime DataVencimento { get; private set; }
+        public string Status { get; private set; }
+
+
         public int AlunoId { get; set; }
         public Aluno Aluno { get; set; }
         public int PlanoId { get; set; }
         public Plano Plano { get; set; }
-        public DateTime DataPagamento { get; private set; }
-        public DateTime DataVencimento { get; private set; }
-        public string Status { get; set; }
     }
 }
